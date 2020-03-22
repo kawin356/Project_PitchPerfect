@@ -44,7 +44,6 @@ extension RecordSoundsViewController: AVAudioRecorderDelegate {
     func pauseRecord() {
         audioRecorder.pause()
         timerUpdateMeter?.invalidate()
-       // timerBlinkRec?.invalidate()
     }
     
     func stopRecord() {

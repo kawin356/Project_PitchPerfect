@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HWt-HP-2eF">
-    <device id="retina5_9" orientation="landscape" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,11 +12,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RecordSoundsViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="64x-k6-Lm3">
-                                <rect key="frame" x="40" y="26" width="732" height="6"/>
+                                <rect key="frame" x="40" y="244.66666666666666" width="295" height="6"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="5" id="kL7-n6-CAf"/>
                                 </constraints>
@@ -24,7 +24,7 @@
                                 <color key="trackTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCI-u7-O06">
-                                <rect key="frame" x="331" y="112.66666666666669" width="150" height="150"/>
+                                <rect key="frame" x="112.66666666666669" y="331" width="150" height="150"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="EQC-e3-wzM"/>
@@ -41,13 +41,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 db" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdU-w8-uAS">
-                                <rect key="frame" x="84" y="46" width="36" height="24"/>
+                                <rect key="frame" x="40" y="264.66666666666669" width="36" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYW-Qy-gyu">
-                                <rect key="frame" x="366" y="270.66666666666669" width="80" height="80"/>
+                                <rect key="frame" x="147.66666666666666" y="489" width="80" height="80"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="1UZ-ug-j4i"/>
@@ -95,54 +95,54 @@
             <objects>
                 <viewController id="yx5-3L-eO3" customClass="PlaySoundsViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pjr-Wa-9gq">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RfP-TU-Cqp">
-                                <rect key="frame" x="59" y="52" width="738" height="213"/>
+                                <rect key="frame" x="15" y="160" width="345" height="529"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Kf1-nA-B8T">
-                                        <rect key="frame" x="0.0" y="0.0" width="738" height="71"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="176.33333333333334"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slow" translatesAutoresizingMaskIntoConstraints="NO" id="5Tj-Sp-crc">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="71"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="176.33333333333334"/>
                                             </imageView>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="500" maxValue="2000" translatesAutoresizingMaskIntoConstraints="NO" id="ZQe-np-Pih" userLabel="Speed Slider">
-                                                <rect key="frame" x="103" y="0.0" width="532" height="72"/>
+                                                <rect key="frame" x="103" y="0.0" width="139" height="177.33333333333334"/>
                                             </slider>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fast" translatesAutoresizingMaskIntoConstraints="NO" id="8x1-th-WL3">
-                                                <rect key="frame" x="638" y="0.0" width="100" height="71"/>
+                                                <rect key="frame" x="245" y="0.0" width="100" height="176.33333333333334"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="P7L-57-oha">
-                                        <rect key="frame" x="0.0" y="71" width="738" height="71"/>
+                                        <rect key="frame" x="0.0" y="176.33333333333331" width="345" height="176.33333333333331"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chipmunk" translatesAutoresizingMaskIntoConstraints="NO" id="jZn-VW-CoR">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="71"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="176.33333333333334"/>
                                             </imageView>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1500" maxValue="1500" translatesAutoresizingMaskIntoConstraints="NO" id="LYk-Hu-yNg" userLabel="Pitch Slider">
-                                                <rect key="frame" x="103" y="0.0" width="532" height="72"/>
+                                                <rect key="frame" x="103" y="0.0" width="139" height="177.33333333333334"/>
                                             </slider>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="darthvader" translatesAutoresizingMaskIntoConstraints="NO" id="Yjr-TR-Alg">
-                                                <rect key="frame" x="638" y="0.0" width="100" height="71"/>
+                                                <rect key="frame" x="245" y="0.0" width="100" height="176.33333333333334"/>
                                             </imageView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Rx9-Yx-UBa">
-                                        <rect key="frame" x="0.0" y="142" width="738" height="71"/>
+                                        <rect key="frame" x="0.0" y="352.66666666666663" width="345" height="176.33333333333337"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Jtx-un-O8I">
-                                                <rect key="frame" x="0.0" y="0.0" width="369" height="71"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="176.33333333333334"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="echo" translatesAutoresizingMaskIntoConstraints="NO" id="1PD-2g-e2x">
-                                                        <rect key="frame" x="0.0" y="0.0" width="369" height="33.666666666666664"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="86.333333333333329"/>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpH-ga-DSF">
-                                                        <rect key="frame" x="0.0" y="37.666666666666657" width="369" height="33.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="90.333333333333371" width="172.66666666666666" height="86"/>
                                                         <subviews>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uTy-fa-Lal" userLabel="Echo Switch">
-                                                                <rect key="frame" x="160" y="1" width="51" height="31"/>
+                                                                <rect key="frame" x="61.666666666666671" y="27.333333333333371" width="51" height="31"/>
                                                             </switch>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,16 +154,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="INT-xZ-cQ8">
-                                                <rect key="frame" x="369" y="0.0" width="369" height="71"/>
+                                                <rect key="frame" x="172.66666666666663" y="0.0" width="172.33333333333337" height="176.33333333333334"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reverb" translatesAutoresizingMaskIntoConstraints="NO" id="ctP-bY-h7r">
-                                                        <rect key="frame" x="0.0" y="0.0" width="369" height="35.666666666666664"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="172.33333333333334" height="88.333333333333329"/>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NU9-sW-nRK">
-                                                        <rect key="frame" x="0.0" y="35.666666666666657" width="369" height="35.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="88.333333333333371" width="172.33333333333334" height="88"/>
                                                         <subviews>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2qT-s6-UTc" userLabel="Reverb Switch">
-                                                                <rect key="frame" x="160" y="2" width="51" height="31"/>
+                                                                <rect key="frame" x="61.666666666666686" y="28.333333333333371" width="51" height="31"/>
                                                             </switch>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -179,7 +179,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1k-HV-Ove">
-                                <rect key="frame" x="374" y="274" width="64" height="64"/>
+                                <rect key="frame" x="155.66666666666666" y="698" width="64" height="64"/>
                                 <state key="normal" image="play-button"/>
                                 <connections>
                                     <action selector="playOrStopButton:" destination="yx5-3L-eO3" eventType="touchUpInside" id="cbk-gQ-h2S"/>
@@ -216,7 +216,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HWt-HP-2eF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="DTk-Rs-GLZ">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="32"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </navigationBar>
