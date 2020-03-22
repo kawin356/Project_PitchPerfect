@@ -1,4 +1,12 @@
 //
+//  PlaySounds.swift
+//  PitchPerfect
+//
+//  Edited by Kittikawin Sontinarakul on 22/3/2563 BE.
+//  Copyright © 2563 Kittikawin Sontinarakul. All rights reserved.
+//
+
+//
 //  PlaySoundsViewController+Audio.swift
 //  PitchPerfect
 //
@@ -10,7 +18,9 @@ import AVFoundation
 
 // MARK: - PlaySoundsViewController: AVAudioPlayerDelegate
 
-extension RecordSoundsViewController: AVAudioPlayerDelegate {
+extension PlaySoundsViewController: AVAudioPlayerDelegate {
+    
+
     
     // MARK: Alerts
     
@@ -39,7 +49,7 @@ extension RecordSoundsViewController: AVAudioPlayerDelegate {
             audioFile = try AVAudioFile(forReading: recordedAudioURL as URL)
         } catch {
             showAlert(Alerts.AudioFileError, message: String(describing: error))
-        }        
+        }
     }
     
     func playSound(rate: Float? = nil, pitch: Float? = nil, echo: Bool = false, reverb: Bool = false) {
@@ -99,7 +109,8 @@ extension RecordSoundsViewController: AVAudioPlayerDelegate {
             }
             
             // schedule a stop timer for when audio finishes playing
-            self.stopTimer = Timer(timeInterval: delayInSeconds, target: self, selector: #selector(RecordSoundsViewController.stopAudio), userInfo: nil, repeats: false)
+            self.stopTimer = Timer(timeInterval: delayInSeconds, target: self, selector: #selector(PlaySoundsViewController.stopAudio), userInfo: nil, repeats: false)
+            
             RunLoop.main.add(self.stopTimer!, forMode: RunLoop.Mode.default)
         }
         
@@ -124,7 +135,7 @@ extension RecordSoundsViewController: AVAudioPlayerDelegate {
             stopTimer.invalidate()
         }
         
-       // configureUI(.notPlaying)
+        configureUI(.notPlaying)
                         
         if let audioEngine = audioEngine {
             audioEngine.stop()
@@ -142,25 +153,14 @@ extension RecordSoundsViewController: AVAudioPlayerDelegate {
     
     // MARK: UI Functions
 
-//    func configureUI(_ playState: PlayingState) {
-//        switch(playState) {
-//        case .playing:
-//            setPlayButtonsEnabled(false)
-//            stopButton.isEnabled = true
-//        case .notPlaying:
-//            setPlayButtonsEnabled(true)
-//            stopButton.isEnabled = false
-//        }
-//    }
-//
-//    func setPlayButtonsEnabled(_ enabled: Bool) {
-//        snailButton.isEnabled = enabled
-//        chipmunkButton.isEnabled = enabled
-//        rabbitButton.isEnabled = enabled
-//        vaderButton.isEnabled = enabled
-//        echoButton.isEnabled = enabled
-//        reverbButton.isEnabled = enabled
-//    }
+    func configureUI(_ playState: PlayingState) {
+        switch(playState) {
+        case .playing:
+            playStopButton.setImage(UIImage(named: "stop-button"), for: .normal)
+        case .notPlaying:
+            playStopButton.setImage(UIImage(named: "play-button"), for: .normal)
+        }
+    }
 
     func showAlert(_ title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -168,3 +168,4 @@ extension RecordSoundsViewController: AVAudioPlayerDelegate {
         self.present(alert, animated: true, completion: nil)
     }
 }
+
