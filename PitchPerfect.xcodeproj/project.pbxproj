@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4312EF232427475200CBFFE0 /* PlaySounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4312EF222427475200CBFFE0 /* PlaySounds.swift */; };
-		4312EF2524274A3700CBFFE0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4312EF2424274A3700CBFFE0 /* Helper.swift */; };
 		4312EF2924274C3200CBFFE0 /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4312EF2824274C3200CBFFE0 /* PlaySoundsViewController.swift */; };
 		435394D6242684E90001A978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435394D5242684E90001A978 /* AppDelegate.swift */; };
 		435394D8242684E90001A978 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435394D7242684E90001A978 /* SceneDelegate.swift */; };
@@ -21,7 +20,6 @@
 
 /* Begin PBXFileReference section */
 		4312EF222427475200CBFFE0 /* PlaySounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySounds.swift; sourceTree = "<group>"; };
-		4312EF2424274A3700CBFFE0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		4312EF2824274C3200CBFFE0 /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
 		435394D2242684E90001A978 /* PitchPerfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchPerfect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		435394D5242684E90001A978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 				435394DE242684EB0001A978 /* Assets.xcassets */,
 				435394E0242684EB0001A978 /* LaunchScreen.storyboard */,
 				435394E3242684EB0001A978 /* Info.plist */,
-				4312EF2424274A3700CBFFE0 /* Helper.swift */,
 			);
 			path = PitchPerfect;
 			sourceTree = "<group>";
@@ -180,7 +177,6 @@
 				4312EF2924274C3200CBFFE0 /* PlaySoundsViewController.swift in Sources */,
 				435394D6242684E90001A978 /* AppDelegate.swift in Sources */,
 				435394D8242684E90001A978 /* SceneDelegate.swift in Sources */,
-				4312EF2524274A3700CBFFE0 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
