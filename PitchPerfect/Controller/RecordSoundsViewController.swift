@@ -29,6 +29,9 @@ class RecordSoundsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startModSoundButton.layer.cornerRadius = 0.5 * startModSoundButton.bounds.size.width
+        startModSoundButton.clipsToBounds = true
+        //soundMeterPregressView.transform = CGAffineTransform(rotationAngle: .pi * -0.5)
     }
     
     @IBAction func recordSoundButtonPressed(_ sender: UIButton) {
