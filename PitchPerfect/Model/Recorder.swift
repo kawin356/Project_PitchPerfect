@@ -43,13 +43,13 @@ extension RecordSoundsViewController: AVAudioRecorderDelegate {
     
     func pauseRecord() {
         audioRecorder.pause()
-        timer?.invalidate()
+        timerUpdateMeter?.invalidate()
        // timerBlinkRec?.invalidate()
     }
     
     func stopRecord() {
         audioRecorder.stop()
-        timer?.invalidate()
+        timerUpdateMeter?.invalidate()
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
     }

@@ -23,6 +23,8 @@ class PlaySoundsViewController: UIViewController {
     var audioPlayerNode: AVAudioPlayerNode!
     var stopTimer: Timer!
     
+    var isPlayingSound: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
@@ -30,14 +32,17 @@ class PlaySoundsViewController: UIViewController {
     }
     
     @IBAction func playOrStopButton(_ sender: UIButton) {
-        let rate = speedSlider.value / 1000
-        let pitch = pitchSlider.value * -1
-        let echo = echoSwitch.isOn
-        let reverb = reverbSwitch.isOn
-        
-        playSound(rate: rate, pitch: pitch, echo: echo, reverb: reverb)
-        configureUI(.playing)
-        
+        if !isPlayingSound {
+            let rate = speedSlider.value / 1000
+            let pitch = pitchSlider.value * -1
+            let echo = echoSwitch.isOn
+            let reverb = reverbSwitch.isOn
+            
+            playSound(rate: rate, pitch: pitch, echo: echo, reverb: reverb)
+            configureUI(.playing)
+        } else {
+            stopAudio()
+        }
     }
     
     

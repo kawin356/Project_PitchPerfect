@@ -11,12 +11,12 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController {
     
-    @IBOutlet weak var soundMeterPregressView: UIProgressView!
+    @IBOutlet weak var soundMeterProgressView: UIProgressView!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var pauseRecordButton: UIButton!
     @IBOutlet weak var dbMeterLabel: UILabel!
     
-    var timer: Timer?
+    var timerUpdateMeter: Timer?
     
     var isStartRecord: Bool = true
     var isResumeRecord: Bool = false
@@ -29,6 +29,8 @@ class RecordSoundsViewController: UIViewController {
         setupUI()
     }
     
+    //MARK: - UI
+    
     func setupUI() {
         pauseRecordButton.layer.cornerRadius = 0.5 * pauseRecordButton.bounds.size.width
         pauseRecordButton.clipsToBounds = true
@@ -36,21 +38,6 @@ class RecordSoundsViewController: UIViewController {
         recordButton.clipsToBounds = true
         recordButton.layer.borderWidth = 1
         recordButton.layer.borderColor = UIColor.gray.cgColor
-    }
-    
-    @IBAction func recordSoundButtonPressed(_ sender: UIButton) {
-        if isStartRecord {
-            startRecord()
-            isStartRecord = false
-            updateMetorAndUI()
-            changeRecordUIButton(state: .recording)
-        } else {
-            isStartRecord = true
-            isResumeRecord = false
-            stopRecord()
-            changeRecordUIButton(state: .stop)
-            performSegue(withIdentifier: "PlaySounds", sender: getSoundURL())
-        }
     }
     
     enum StateRecord {
@@ -80,18 +67,24 @@ class RecordSoundsViewController: UIViewController {
     
     func resetDbSound() {
         dbMeterLabel.text = "0.0 db"
-        soundMeterPregressView.progress = 0
+        soundMeterProgressView.progress = 0
     }
     
+    //MARK: - IBAction
     
-    //MARK: - Monitoring sound recording Voulume
-    
-    func updateMetorAndUI() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { (timer) in
-            let dbMeter = self.getSoundMeterProgressView()
-            self.soundMeterPregressView.progress = dbMeter
-            self.dbMeterLabel.text = String(format: "%0.1f", dbMeter * 100) + " db"
-        })
+    @IBAction func recordSoundButtonPressed(_ sender: UIButton) {
+        if isStartRecord {
+            startRecord()
+            isStartRecord = false
+            updateMetorAndUI()
+            changeRecordUIButton(state: .recording)
+        } else {
+            isStartRecord = true
+            isResumeRecord = false
+            stopRecord()
+            changeRecordUIButton(state: .stop)
+            performSegue(withIdentifier: "PlaySounds", sender: getSoundURL())
+        }
     }
     
     @IBAction func pauseButtonPressed(_ sender: UIButton) {
@@ -105,6 +98,22 @@ class RecordSoundsViewController: UIViewController {
         }
         isResumeRecord = !isResumeRecord
     }
+    
+    
+    
+    
+    //MARK: - Monitoring sound recording Voulume
+    
+    func updateMetorAndUI() {
+        timerUpdateMeter = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { (timer) in
+            let dbMeter = self.getSoundMeterProgressView()
+            self.soundMeterProgressView.progress = dbMeter
+            self.dbMeterLabel.text = String(format: "%0.1f", dbMeter * 100) + " db"
+        })
+    }
+    
+
+    //MARK: - Prepare Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PlaySounds" {

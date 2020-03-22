@@ -20,8 +20,6 @@ import AVFoundation
 
 extension PlaySoundsViewController: AVAudioPlayerDelegate {
     
-
-    
     // MARK: Alerts
     
     struct Alerts {
@@ -157,9 +155,18 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         switch(playState) {
         case .playing:
             playStopButton.setImage(UIImage(named: "stop-button"), for: .normal)
+            setEnableUI(enable: false)
         case .notPlaying:
             playStopButton.setImage(UIImage(named: "play-button"), for: .normal)
+            setEnableUI(enable: true)
         }
+    }
+    
+    func setEnableUI(enable: Bool) {
+        speedSlider.isEnabled = enable
+        pitchSlider.isEnabled = enable
+        echoSwitch.isEnabled = enable
+        reverbSwitch.isEnabled = enable
     }
 
     func showAlert(_ title: String, message: String) {
