@@ -10,28 +10,32 @@ import UIKit
 import AVFoundation
 
 class RecordSoundsViewController: UIViewController {
+    
     @IBOutlet weak var soundMeterPregressView: UIProgressView!
     @IBOutlet weak var recordButton: UIButton!
-    @IBOutlet weak var startModSoundButton: UIButton!
+    @IBOutlet weak var pauseRecordButton: UIButton!
     @IBOutlet weak var dbMeterLabel: UILabel!
     
-    
-    
-    var timer, timerBlinkRec: Timer?
+    var timer: Timer?
     
     var isStartRecord: Bool = true
     var isResumeRecord: Bool = false
-
     var stopTimer: Timer!
-    
     var audioRecorder : AVAudioRecorder!
     var filePath: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startModSoundButton.layer.cornerRadius = 0.5 * startModSoundButton.bounds.size.width
-        startModSoundButton.clipsToBounds = true
-        //soundMeterPregressView.transform = CGAffineTransform(rotationAngle: .pi * -0.5)
+        setupUI()
+    }
+    
+    func setupUI() {
+        pauseRecordButton.layer.cornerRadius = 0.5 * pauseRecordButton.bounds.size.width
+        pauseRecordButton.clipsToBounds = true
+        recordButton.layer.cornerRadius = 0.5 * recordButton.bounds.size.width
+        recordButton.clipsToBounds = true
+        recordButton.layer.borderWidth = 1
+        recordButton.layer.borderColor = UIColor.gray.cgColor
     }
     
     @IBAction func recordSoundButtonPressed(_ sender: UIButton) {
@@ -39,16 +43,46 @@ class RecordSoundsViewController: UIViewController {
             startRecord()
             isStartRecord = false
             updateMetorAndUI()
+            changeRecordUIButton(state: .recording)
         } else {
-            if isResumeRecord {
-                startAndResumeRecord()
-                updateMetorAndUI()
-            } else {
-                pauseRecord()
-            }
-            isResumeRecord = !isResumeRecord
+            isStartRecord = true
+            isResumeRecord = false
+            stopRecord()
+            changeRecordUIButton(state: .stop)
+            performSegue(withIdentifier: "PlaySounds", sender: getSoundURL())
         }
     }
+    
+    enum StateRecord {
+        case recording, stop, pause
+    }
+    
+    func changeRecordUIButton(state: StateRecord) {
+        switch state {
+        case .recording:
+            recordButton.backgroundColor = .red
+            recordButton.setTitle("Stop", for: .normal)
+            recordButton.isEnabled = true
+            pauseRecordButton.isEnabled = true
+        case .pause:
+            recordButton.backgroundColor = .darkGray
+            recordButton.setTitle("Pause", for: .normal)
+            recordButton.isEnabled = false
+            resetDbSound()
+        case .stop:
+            recordButton.backgroundColor = .black
+            recordButton.setTitle("Start", for: .normal)
+            recordButton.isEnabled = true
+            pauseRecordButton.isEnabled = false
+            resetDbSound()
+        }
+    }
+    
+    func resetDbSound() {
+        dbMeterLabel.text = "0.0 db"
+        soundMeterPregressView.progress = 0
+    }
+    
     
     //MARK: - Monitoring sound recording Voulume
     
@@ -58,23 +92,18 @@ class RecordSoundsViewController: UIViewController {
             self.soundMeterPregressView.progress = dbMeter
             self.dbMeterLabel.text = String(format: "%0.1f", dbMeter * 100) + " db"
         })
-        
-        timerBlinkRec = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: true, block: { (timer) in
-            if self.recordButton.currentImage == UIImage(named: "recording1") {
-                self.recordButton.setImage(UIImage(named: "recording2"), for: .normal)
-            } else {
-                self.recordButton.setImage(UIImage(named: "recording1"), for: .normal)
-            }
-            
-        })
     }
     
-    @IBAction func startModSoundButtonPressed(_ sender: UIButton) {
-        isStartRecord = true
-        isResumeRecord = false
-        stopRecord()
-        
-        performSegue(withIdentifier: "PlaySounds", sender: getSoundURL())
+    @IBAction func pauseButtonPressed(_ sender: UIButton) {
+        if isResumeRecord {
+            startAndResumeRecord()
+            updateMetorAndUI()
+            changeRecordUIButton(state: .recording)
+        } else {
+            pauseRecord()
+            changeRecordUIButton(state: .pause)
+        }
+        isResumeRecord = !isResumeRecord
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
